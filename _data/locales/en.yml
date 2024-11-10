@@ -23,11 +23,11 @@ search:
   cancel: Cancel
   no_results: Oops! No results found.
 
-panel:
-  lastmod: Recently Updated
-  trending_tags: Trending Tags
-  external_links: External Links
-  toc: Contents
+#panel:
+#  lastmod: Recently Updated
+#  trending_tags: Trending Tags
+#  external_links: External Links
+#  toc: Contents
 
 copyright:
   # Shown at the bottom of the post

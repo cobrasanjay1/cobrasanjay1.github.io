@@ -1,8 +1,5 @@
 ---
-# the default layout is 'page'
-icon: fas fa-info-circle
-order: 4
+layout: mine
+icon: fas fa-stream
+order: 1
 ---
-
-> Ananya
-{: .prompt-tip }

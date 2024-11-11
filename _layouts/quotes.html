@@ -1,0 +1,15 @@
+---
+layout: default
+refactor: true
+---
+
+{% include lang.html %}
+
+<div id="portfolio-embed" style="width: 100%; height: 1000px;">
+  <iframe src="https://d2pfrwbr3k12ah.cloudfront.net" width="100%" height="1000px" style="border: none;"></iframe>
+
+</div>
+
+{% if paginator.total_pages > 1 %}
+  {% include post-paginator.html %}
+{% endif %}

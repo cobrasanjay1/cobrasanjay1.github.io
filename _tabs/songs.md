@@ -1,6 +1,6 @@
 ---
 layout: songs
 
-icon: fas fa-audio
+icon: fas fa-music
 order: 1
 ---

@@ -6,6 +6,13 @@ export async function POST(req: Request) {
         const key_id = process.env.RAZORPAY_KEY_ID || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_1DP5mmOlF5G5ag";
         const key_secret = process.env.RAZORPAY_KEY_SECRET || "fake_secret_key_12345";
 
+        // IMPORTANT DEBUG LOGS FOR RENDER (DO NOT LOG FULL SECRET)
+        console.log("====== RAZORPAY DEBUG ======");
+        console.log("Using Key ID:", key_id);
+        console.log("Secret length:", key_secret.length);
+        console.log("Does secret match fallback?", key_secret === "fake_secret_key_12345");
+        console.log("============================");
+
         const instance = new Razorpay({ key_id, key_secret });
         const { amount } = await req.json();
 

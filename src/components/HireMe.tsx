@@ -17,7 +17,7 @@ export default function HireMe() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ amount: 5000 }), // e.g. 5000 INR retainer
+                body: JSON.stringify({ amount: 1000 }), // e.g. 5000 INR retainer
             });
             const order = await res.json();
 

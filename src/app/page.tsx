@@ -6,10 +6,12 @@ import Experience from '@/components/Experience';
 import Terminal from '@/components/Terminal';
 import HireMe from '@/components/HireMe';
 import Contact from '@/components/Contact';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-transparent text-foreground overflow-hidden selection:bg-primary/30">
+      <Navbar />
       <ThreeScene />
 
       <div className="flex flex-col gap-24 sm:gap-32 md:gap-40 pb-20">

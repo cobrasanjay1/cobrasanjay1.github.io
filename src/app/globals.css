@@ -6,7 +6,7 @@
   --color-primary: #8b5cf6;
   --color-secondary: #06b6d4;
   --color-accent: #f43f5e;
-
+  
   --font-sans: 'Inter', var(--font-geist-sans);
   --font-mono: 'Fira Code', var(--font-geist-mono);
 }
@@ -14,63 +14,6 @@
 :root {
   --background: #050505;
   --foreground: #ededed;
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glass-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-  --glass-card-border: rgba(255, 255, 255, 0.08);
-  --glass-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --scrollbar-track: #0a0a0a;
-  --scrollbar-thumb: #333;
-}
-
-/* ─── Light Mode ─────────────────────────────────────── */
-:root.light {
-  --background: #f0f2f8;
-  --foreground: #0f172a;
-  --glass-bg: rgba(0, 0, 0, 0.03);
-  --glass-border: rgba(0, 0, 0, 0.06);
-  --glass-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6));
-  --glass-card-border: rgba(0, 0, 0, 0.08);
-  --glass-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  --scrollbar-track: #e2e8f0;
-  --scrollbar-thumb: #94a3b8;
-}
-
-:root.light .bg-gradient-mesh {
-  background-color: var(--background);
-  background-image:
-    radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%);
-}
-
-/* Light mode Tailwind colour overrides */
-:root.light .text-white {
-  color: #0f172a;
-}
-
-:root.light .text-gray-400 {
-  color: #475569;
-}
-
-:root.light .text-gray-300 {
-  color: #334155;
-}
-
-:root.light .text-gray-500 {
-  color: #64748b;
-}
-
-:root.light .border-white\/10 {
-  border-color: rgba(0, 0, 0, 0.08);
-}
-
-:root.light .bg-black\/50 {
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-:root.light .bg-black\/70,
-:root.light .bg-black\/90 {
-  background-color: rgba(255, 255, 255, 0.85);
 }
 
 body {
@@ -79,28 +22,26 @@ body {
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Glassmorphism Utilities */
 .glass {
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .glass-card {
-  background: var(--glass-card-bg);
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-card-border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
-  box-shadow: var(--glass-card-shadow);
-  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
-
 .glass-card:hover {
   border-color: rgba(139, 92, 246, 0.3);
   transform: translateY(-5px);
@@ -116,18 +57,13 @@ body {
 
 .bg-gradient-mesh {
   background-color: var(--background);
-  background-image:
+  background-image: 
     radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.12), transparent 25%),
     radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.12), transparent 25%);
 }
 
 /* Base Heading Styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -136,16 +72,13 @@ h6 {
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
+  background: #0a0a0a;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
+  background: #333;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
 }

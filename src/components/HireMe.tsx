@@ -27,7 +27,7 @@ export default function HireMe() {
             }
 
             const options = {
-                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_1DP5mmOlF5G5ag",
+                key: order.key_id, // Fetching securely from our API route instead of hardcoding NEXT_PUBLIC
                 amount: order.amount,
                 currency: order.currency,
                 name: "Sanjay Vinod",

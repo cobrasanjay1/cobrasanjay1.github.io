@@ -19,9 +19,6 @@ export default function Home() {
         <About />
 
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-        <Terminal />
-
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         <Experience />
 
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -37,6 +34,7 @@ export default function Home() {
       <footer className="w-full py-8 text-center text-sm text-gray-500 relative z-10 border-t border-white/10 bg-black/50 backdrop-blur-md">
         <p>© {new Date().getFullYear()} Sanjay Vinod. Building secure, premium digital experiences.</p>
       </footer>
+      <Terminal />
     </main>
   );
 }

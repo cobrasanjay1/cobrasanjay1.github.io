@@ -35,7 +35,7 @@ export default function Navbar() {
             >
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                     {/* Logo */}
-                    <a href="#" className="text-xl font-bold tracking-tighter text-white hover:text-primary transition-colors">
+                    <a href="https://github.com/cobrasanjay1" target="_blank" rel="noopener noreferrer" className="text-xl font-bold tracking-tighter text-white hover:text-primary transition-colors">
                         Sanjay Vinod
                     </a>
 

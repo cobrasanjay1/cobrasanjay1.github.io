@@ -11,7 +11,8 @@ export default function HireMe() {
     const handlePayment = async () => {
         setLoading(true);
         try {
-            const res = await fetch('/api/razorpay', {
+            const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || '';
+            const res = await fetch(`${backendUrl}/api/razorpay`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

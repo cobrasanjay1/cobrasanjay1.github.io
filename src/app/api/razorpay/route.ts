@@ -19,8 +19,11 @@ export async function POST(req: Request) {
 
         // Pass the key_id back securely so the frontend doesn't need NEXT_PUBLIC variants
         return NextResponse.json({ ...order, key_id });
-    } catch (error) {
+    } catch (error: any) {
         console.error("Razorpay error:", error);
-        return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+        return NextResponse.json({
+            error: "Something went wrong",
+            details: error?.message || error?.description || JSON.stringify(error)
+        }, { status: 500 });
     }
 }

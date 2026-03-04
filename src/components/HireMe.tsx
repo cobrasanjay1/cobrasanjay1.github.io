@@ -21,7 +21,7 @@ export default function HireMe() {
             const order = await res.json();
 
             if (order.error) {
-                alert("Payment initialization failed. Check server logs.");
+                alert(`Payment initialization failed: ${order.details || 'Check server logs.'}`);
                 setLoading(false);
                 return;
             }

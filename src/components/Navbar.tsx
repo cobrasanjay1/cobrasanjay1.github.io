@@ -2,11 +2,27 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+    // Load saved theme on mount
+    useEffect(() => {
+        const saved = localStorage.getItem('theme') as 'dark' | 'light' | null;
+        const preferred = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        setTheme(preferred);
+        document.documentElement.classList.toggle('light', preferred === 'light');
+    }, []);
+
+    const toggleTheme = () => {
+        const next = theme === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+        document.documentElement.classList.toggle('light', next === 'light');
+        localStorage.setItem('theme', next);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,7 +36,7 @@ export default function Navbar() {
     const navLinks = [
         { name: 'Home', href: '#' },
         { name: 'About', href: '#about' },
-        { name: 'Services', href: '#projects' }, // Pointing Services to Projects based on his current content
+        { name: 'Services', href: '#projects' },
         { name: 'Contact', href: '#contact' },
     ];
 
@@ -54,13 +70,35 @@ export default function Navbar() {
                         ))}
                     </ul>
 
-                    {/* Mobile Menu Toggle */}
-                    <button
-                        className="md:hidden text-gray-300 hover:text-white"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    >
-                        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                    </button>
+                    <div className="flex items-center gap-3">
+                        {/* Theme Toggle */}
+                        <motion.button
+                            onClick={toggleTheme}
+                            whileTap={{ scale: 0.9 }}
+                            className="w-9 h-9 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-300 hover:text-white transition-colors"
+                            aria-label="Toggle theme"
+                        >
+                            <AnimatePresence mode="wait" initial={false}>
+                                <motion.div
+                                    key={theme}
+                                    initial={{ rotate: -90, opacity: 0 }}
+                                    animate={{ rotate: 0, opacity: 1 }}
+                                    exit={{ rotate: 90, opacity: 0 }}
+                                    transition={{ duration: 0.2 }}
+                                >
+                                    {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                                </motion.div>
+                            </AnimatePresence>
+                        </motion.button>
+
+                        {/* Mobile Menu Toggle */}
+                        <button
+                            className="md:hidden text-gray-300 hover:text-white"
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        >
+                            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        </button>
+                    </div>
                 </div>
             </motion.nav>
 
